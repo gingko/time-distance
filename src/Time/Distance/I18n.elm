@@ -6,51 +6,56 @@ a localized string
 If you'd like to add more languages, pasting this into a translation app
 would be a start:
 
-    "in 10 minutes"
+```text
+"in 10 minutes"
 
-    "10 minutes ago"
+"10 minutes ago"
 
-    less than 1 second
+less than 1 second
 
-    less than X seconds
+less than X seconds
 
-    half a minute
+half a minute
 
-    less than a minute
+less than a minute
 
-    less than X minutes
+less than X minutes
 
-    1 minute
+1 minute
 
-    X minutes
+X minutes
 
-    about 1 hour
+about 1 hour
 
-    about X hours
+about X hours
 
-    1 day
+1 day
 
-    X days
+X days
 
-    about 1 month
+about 1 month
 
-    about X months
+about X months
 
-    1 month
+1 month
 
-    X months
+X months
 
-    about 1 year
+about 1 year
 
-    about X years
+about X years
 
-    over 1 year
+over 1 year
 
-    over X years
+over X years
 
-    almost 1 year
+almost 1 year
 
-    almost X years
+almost X years
+```
+
+
+# Language Functions
 
 @docs en, es, fr, sv
 
@@ -61,8 +66,7 @@ import Time.Distance.Types exposing (DistanceId(..), Locale, Tense(..))
 
 {-| English version.
 
-`Locale` is a type alias for the function:
-\`{withAffix : Bool} -> Tense -> DistanceId -> String
+`Config` is a type alias for `{withAffix : Bool}`
 
 -}
 en : Locale
@@ -161,8 +165,7 @@ en { withAffix } tense distanceId =
 
 {-| Spanish version.
 
-`Locale` is a type alias for the function:
-\`{withAffix : Bool} -> Tense -> DistanceId -> String
+`Config` is a type alias for `{withAffix : Bool}`
 
 -}
 es : Locale
@@ -261,8 +264,7 @@ es { withAffix } tense distanceId =
 
 {-| French version.
 
-`Locale` is a type alias for the function:
-\`{withAffix : Bool} -> Tense -> DistanceId -> String
+`Config` is a type alias for `{withAffix : Bool}`
 
 -}
 fr : Locale
@@ -361,8 +363,7 @@ fr { withAffix } tense distanceId =
 
 {-| Swedish version.
 
-`Locale` is a type alias for the function:
-\`{withAffix : Bool} -> Tense -> DistanceId -> String
+`Config` is a type alias for `{withAffix : Bool}`
 
 -}
 sv : Locale
