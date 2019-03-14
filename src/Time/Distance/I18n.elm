@@ -242,7 +242,7 @@ french { withAffix } tense distanceId =
                 "menos de " ++ toStr i ++ " secondes"
 
         HalfAMinute ->
-            "medio minute"
+            "une demi-minute"
 
         LessThanXMinutes i ->
             if i == 1 then
