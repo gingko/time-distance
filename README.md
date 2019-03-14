@@ -5,6 +5,8 @@ Get the relative distance between two `Time.Posix` values, in words. For instanc
 * "in 3 months"
 * "about 1 hour ago"
 
+Most of this is taken from the 0.18 package [alpacaaa/elm-date-distance](https://github.com/alpacaaa/elm-date-distance).
+
 
 ## Example
 
