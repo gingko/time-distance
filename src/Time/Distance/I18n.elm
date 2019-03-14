@@ -117,7 +117,7 @@ spanish { withAffix } tense distanceId =
     (case distanceId of
         LessThanXSeconds i ->
             if i == 1 then
-                "menos de 1 segundo"
+                "menos de un segundo"
 
             else
                 "menos de " ++ toStr i ++ " segundos"
@@ -141,10 +141,10 @@ spanish { withAffix } tense distanceId =
 
         AboutXHours i ->
             if i == 1 then
-                "alrededor 1 hora"
+                "alrededor de una hora"
 
             else
-                "alrededor " ++ toStr i ++ " hours"
+                "alrededor de " ++ toStr i ++ " horas"
 
         XDays i ->
             if i == 1 then
@@ -155,7 +155,7 @@ spanish { withAffix } tense distanceId =
 
         AboutXMonths i ->
             if i == 1 then
-                "alrededor 1 mes"
+                "alrededor de un mes"
 
             else
                 "alrededor " ++ toStr i ++ " meses"
@@ -169,10 +169,10 @@ spanish { withAffix } tense distanceId =
 
         AboutXYears i ->
             if i == 1 then
-                "alrededor 1 año"
+                "alrededor de un año"
 
             else
-                "alrededor " ++ toStr i ++ " años"
+                "alrededor de " ++ toStr i ++ " años"
 
         OverXYears i ->
             if i == 1 then
