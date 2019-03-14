@@ -1,9 +1,58 @@
-module Time.Distance.I18n exposing (english, spanish, french)
+module Time.Distance.I18n exposing (en, es, fr, sv)
 
 {-| Language functions to take `DistanceId` and other settings, and return
 a localized string
 
-@docs english, spanish, french
+If you'd like to add more languages, pasting this into a translation app
+would be a start:
+
+    "in 10 minutes"
+
+    "10 minutes ago"
+
+    less than 1 second
+
+    less than X seconds
+
+    half a minute
+
+    less than a minute
+
+    less than X minutes
+
+    1 minute
+
+    X minutes
+
+    about 1 hour
+
+    about X hours
+
+    1 day
+
+    X days
+
+    about 1 month
+
+    about X months
+
+    1 month
+
+    X months
+
+    about 1 year
+
+    about X years
+
+    over 1 year
+
+    over X years
+
+    almost 1 year
+
+    almost X years
+
+@docs en, es, fr, sv
 
 -}
 
@@ -16,8 +65,8 @@ import Time.Distance.Types exposing (DistanceId(..), Locale, Tense(..))
 \`{withAffix : Bool} -> Tense -> DistanceId -> String
 
 -}
-english : Locale
-english { withAffix } tense distanceId =
+en : Locale
+en { withAffix } tense distanceId =
     let
         toStr =
             String.fromInt
@@ -116,8 +165,8 @@ english { withAffix } tense distanceId =
 \`{withAffix : Bool} -> Tense -> DistanceId -> String
 
 -}
-spanish : Locale
-spanish { withAffix } tense distanceId =
+es : Locale
+es { withAffix } tense distanceId =
     let
         toStr =
             String.fromInt
@@ -216,8 +265,8 @@ spanish { withAffix } tense distanceId =
 \`{withAffix : Bool} -> Tense -> DistanceId -> String
 
 -}
-french : Locale
-french { withAffix } tense distanceId =
+fr : Locale
+fr { withAffix } tense distanceId =
     let
         toStr =
             String.fromInt
@@ -306,5 +355,105 @@ french { withAffix } tense distanceId =
 
             else
                 "près de " ++ toStr i ++ " ans"
+    )
+        |> maybeAffix
+
+
+{-| Swedish version.
+
+`Locale` is a type alias for the function:
+\`{withAffix : Bool} -> Tense -> DistanceId -> String
+
+-}
+sv : Locale
+sv { withAffix } tense distanceId =
+    let
+        toStr =
+            String.fromInt
+
+        maybeAffix str =
+            case ( withAffix, tense ) of
+                ( True, Past ) ->
+                    str ++ " sedan"
+
+                ( True, Future ) ->
+                    "om " ++ str
+
+                ( False, _ ) ->
+                    str
+    in
+    (case distanceId of
+        LessThanXSeconds i ->
+            if i == 1 then
+                "mindre än 1 sekund"
+
+            else
+                "mindre än" ++ toStr i ++ " seconds"
+
+        HalfAMinute ->
+            "en halv minut"
+
+        LessThanXMinutes i ->
+            if i == 1 then
+                "mindre än en minut"
+
+            else
+                "mindre än " ++ toStr i ++ " minuter"
+
+        XMinutes i ->
+            if i == 1 then
+                "1 minut"
+
+            else
+                toStr i ++ " minuter"
+
+        AboutXHours i ->
+            if i == 1 then
+                "ungefär 1 timme"
+
+            else
+                "ungefär " ++ toStr i ++ " timmar"
+
+        XDays i ->
+            if i == 1 then
+                "1 dag"
+
+            else
+                toStr i ++ " dagar"
+
+        AboutXMonths i ->
+            if i == 1 then
+                "ungefär 1 månad"
+
+            else
+                "ungefär " ++ toStr i ++ " månader"
+
+        XMonths i ->
+            if i == 1 then
+                "1 månad"
+
+            else
+                toStr i ++ " månader"
+
+        AboutXYears i ->
+            if i == 1 then
+                "ungefär 1 år"
+
+            else
+                "ungefär " ++ toStr i ++ " år"
+
+        OverXYears i ->
+            if i == 1 then
+                "över 1 år"
+
+            else
+                "över " ++ toStr i ++ " år"
+
+        AlmostXYears i ->
+            if i == 1 then
+                "nästan 1 år"
+
+            else
+                "nästan " ++ toStr i ++ " år"
     )
         |> maybeAffix
