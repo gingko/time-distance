@@ -1,5 +1,14 @@
 module Time.Distance exposing (inWords, inWordsWithConfig)
 
+{-| Library for getting the relative distance between two `Time.Posix` values, in words.
+
+
+# Time.Distance
+
+@docs inWords, inWordsWithConfig
+
+-}
+
 import Time
 import Time.Distance.I18n as I18n
 import Time.Distance.Types exposing (Config, DistanceId(..), Locale, Tense(..))
@@ -25,11 +34,23 @@ minutes_in_two_months =
     86400
 
 
+{-| Get the string representing the time interval, defaulting to English, with
+affixes ("ago"/"in").
+
+The second argument is for the "now" time.
+
+-}
 inWords : Time.Posix -> Time.Posix -> String
 inWords otherTime currentTime =
     inWordsWithConfig { withAffix = True } I18n.english otherTime currentTime
 
 
+{-| Get the string representing the time interval, with another language, and/
+or without affixes ("ago"/"in").
+
+`Config` is a type alias for `{ withAffix : Bool}`.
+
+-}
 inWordsWithConfig :
     Config
     -> Locale
