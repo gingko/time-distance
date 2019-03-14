@@ -1,8 +1,21 @@
 module Time.Distance.I18n exposing (english, spanish)
 
+{-| Language functions to take `DistanceId` and other settings, and return
+a localized string
+
+@docs english, spanish
+
+-}
+
 import Time.Distance.Types exposing (DistanceId(..), Locale, Tense(..))
 
 
+{-| English version.
+
+`Locale` is a type alias for the function:
+\`{withAffix : Bool} -> Tense -> DistanceId -> String
+
+-}
 english : Locale
 english { withAffix } tense distanceId =
     let
@@ -97,6 +110,12 @@ english { withAffix } tense distanceId =
         |> maybeAffix
 
 
+{-| Spanish version.
+
+`Locale` is a type alias for the function:
+\`{withAffix : Bool} -> Tense -> DistanceId -> String
+
+-}
 spanish : Locale
 spanish { withAffix } tense distanceId =
     let

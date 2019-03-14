@@ -23,19 +23,27 @@ exampleTime : Time.Posix
 exampleTime = millisToPosix exampleMillis
 
 
-inWords (millisToPosix (exampleMillis - 1000*60)) exampleTime
+inWords
+  (millisToPosix (exampleMillis - 1000*60))
+  exampleTime
 -- "1 minute ago"
 
 
-inWords (millisToPosix (exampleMillis - 1000*60*65)) exampleTime
+inWords
+  (millisToPosix (exampleMillis - 1000*60*65))
+  exampleTime
 -- "about 1 hour ago"
 
 
-inWords (millisToPosix (exampleMillis - 1000*60*60*24*30)) exampleTime
+inWords
+  (millisToPosix (exampleMillis - 1000*60*60*24*30))
+  exampleTime
 -- "about 1 month ago"
 
 
-inWords (millisToPosix (exampleMillis + 1000*60*60*24*30*5)) exampleTime
+inWords
+  (millisToPosix (exampleMillis + 1000*60*60*24*30*5))
+  exampleTime
 -- "in 5 months"
 ```
 
@@ -59,13 +67,17 @@ exampleTime = millisToPosix exampleMillis
 
 
 monthBack : Time.Posix
-monthBack = exampleMillis - 1000*60*60*24*30 |> millisToPosix
+monthBack =
+  exampleMillis - 1000*60*60*24*30
+    |> millisToPosix
 
 
-inWordsSpanish = inWordsWithConfig { withAffix = True } I18n.spanish
+inWordsSpanish =
+  inWordsWithConfig { withAffix = True } I18n.spanish
 
 
-inWordsSpanishNoAffix = inWordsWithConfig { withAffix = False } I18n.spanish
+inWordsSpanishNoAffix =
+  inWordsWithConfig { withAffix = False } I18n.spanish
 
 
 inWordsSpanish monthBack exampleTime
