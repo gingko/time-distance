@@ -42,7 +42,7 @@ The second argument is for the "now" time.
 -}
 inWords : Time.Posix -> Time.Posix -> String
 inWords otherTime currentTime =
-    inWordsWithConfig { withAffix = True } I18n.english otherTime currentTime
+    inWordsWithConfig { withAffix = True } I18n.en otherTime currentTime
 
 
 {-| Get the string representing the time interval, with another language, and/
