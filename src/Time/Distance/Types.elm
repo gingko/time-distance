@@ -1,7 +1,12 @@
 module Time.Distance.Types exposing (Config, DistanceId(..), Locale, Tense(..))
 
-{-|
-    @docs DistanceId, Tense, Config, Locale
+{-|Types to allow you to write your own functions. Note that
+if you are doing this yourself (instead of importing translations from a server),
+it'd be helpful if you make a PR or a comment on the repo so I can make the
+language available for others.
+
+# Time.Distance.Types
+@docs DistanceId, Tense, Config, Locale
 -}
 
 {-|All available time intervals.
