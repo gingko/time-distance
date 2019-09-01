@@ -3,7 +3,7 @@
     "name": "gingko/time-distance",
     "summary": "Get approximate relative time in words",
     "license": "MIT",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "exposed-modules": [
         "Time.Distance",
         "Time.Distance.I18n",
