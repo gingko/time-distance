@@ -1,4 +1,7 @@
-module Time.Distance.I18n exposing (en, es, fr, sv)
+module Time.Distance.I18n exposing
+    ( en, es, fr, sv
+    , nl
+    )
 
 {-| Language functions to take `DistanceId` and other settings, and return
 a localized string
@@ -459,12 +462,12 @@ sv { withAffix } tense distanceId =
     )
         |> maybeAffix
 
+
 {-| Dutch version.
 
 `Config` is a type alias for `{withAffix : Bool}`
 
 -}
-
 nl : Locale
 nl { withAffix } tense distanceId =
     let
