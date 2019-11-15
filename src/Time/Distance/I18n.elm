@@ -458,3 +458,102 @@ sv { withAffix } tense distanceId =
                 "nästan " ++ toStr i ++ " år"
     )
         |> maybeAffix
+
+{-| Dutch version.
+
+`Config` is a type alias for `{withAffix : Bool}`
+
+-}
+
+nl : Locale
+nl { withAffix } tense distanceId =
+    let
+        toStr =
+            String.fromInt
+
+        maybeAffix str =
+            case ( withAffix, tense ) of
+                ( True, Past ) ->
+                    str ++ "geleden "
+
+                ( True, Future ) ->
+                    "over " ++ str
+
+                ( False, _ ) ->
+                    str
+    in
+    (case distanceId of
+        LessThanXSeconds i ->
+            if i == 1 then
+                "minder dan 1 seconde"
+
+            else
+                "minder dan " ++ toStr i ++ " seconden"
+
+        HalfAMinute ->
+            "een halve minuut"
+
+        LessThanXMinutes i ->
+            if i == 1 then
+                "minder dan een minuut"
+
+            else
+                "minder dan " ++ toStr i ++ " minuten"
+
+        XMinutes i ->
+            if i == 1 then
+                "1 minuut"
+
+            else
+                toStr i ++ " minuten"
+
+        AboutXHours i ->
+            if i == 1 then
+                "over 1 uur"
+
+            else
+                "over " ++ toStr i ++ " uur"
+
+        XDays i ->
+            if i == 1 then
+                "1 dag"
+
+            else
+                toStr i ++ " dagen"
+
+        AboutXMonths i ->
+            if i == 1 then
+                "over 1 maand"
+
+            else
+                "over " ++ toStr i ++ " maanden"
+
+        XMonths i ->
+            if i == 1 then
+                "1 maand"
+
+            else
+                toStr i ++ " maanden"
+
+        AboutXYears i ->
+            if i == 1 then
+                "over 1 jaar"
+
+            else
+                "over " ++ toStr i ++ " jaren"
+
+        OverXYears i ->
+            if i == 1 then
+                "over 1 jaar"
+
+            else
+                "over " ++ toStr i ++ " jaren"
+
+        AlmostXYears i ->
+            if i == 1 then
+                "bijna 1 jaar"
+
+            else
+                "bijna " ++ toStr i ++ " jaar"
+    )
+        |> maybeAffix
