@@ -474,7 +474,7 @@ nl { withAffix } tense distanceId =
         maybeAffix str =
             case ( withAffix, tense ) of
                 ( True, Past ) ->
-                    str ++ "geleden "
+                    str ++ " geleden"
 
                 ( True, Future ) ->
                     "over " ++ str
@@ -512,7 +512,7 @@ nl { withAffix } tense distanceId =
                 "over 1 uur"
 
             else
-                "over " ++ toStr i ++ " uur"
+                toStr i ++ " uur"
 
         XDays i ->
             if i == 1 then
@@ -526,7 +526,7 @@ nl { withAffix } tense distanceId =
                 "over 1 maand"
 
             else
-                "over " ++ toStr i ++ " maanden"
+                toStr i ++ " maanden"
 
         XMonths i ->
             if i == 1 then
@@ -540,7 +540,7 @@ nl { withAffix } tense distanceId =
                 "over 1 jaar"
 
             else
-                "over " ++ toStr i ++ " jaren"
+                toStr i ++ " jaren"
 
         OverXYears i ->
             if i == 1 then
