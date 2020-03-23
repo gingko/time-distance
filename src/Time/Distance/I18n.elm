@@ -474,7 +474,7 @@ nl { withAffix } tense distanceId =
         maybeAffix str =
             case ( withAffix, tense ) of
                 ( True, Past ) ->
-                    str ++ "geleden "
+                    str ++ " geleden"
 
                 ( True, Future ) ->
                     "over " ++ str
