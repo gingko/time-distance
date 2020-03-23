@@ -523,10 +523,10 @@ nl { withAffix } tense distanceId =
 
         AboutXMonths i ->
             if i == 1 then
-                "over 1 maand"
+                "ongeveer 1 maand"
 
             else
-                "over " ++ toStr i ++ " maanden"
+                "ongveer " ++ toStr i ++ " maanden"
 
         XMonths i ->
             if i == 1 then
@@ -537,10 +537,10 @@ nl { withAffix } tense distanceId =
 
         AboutXYears i ->
             if i == 1 then
-                "over 1 jaar"
+                "ongeveer 1 jaar"
 
             else
-                "over " ++ toStr i ++ " jaren"
+                "ongeveer " ++ toStr i ++ " jaar"
 
         OverXYears i ->
             if i == 1 then
