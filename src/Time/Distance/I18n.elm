@@ -509,10 +509,10 @@ nl { withAffix } tense distanceId =
 
         AboutXHours i ->
             if i == 1 then
-                "over 1 uur"
+                "meer dan 1 uur"
 
             else
-                "over " ++ toStr i ++ " uur"
+                "meer dan  " ++ toStr i ++ " uur"
 
         XDays i ->
             if i == 1 then
@@ -544,10 +544,10 @@ nl { withAffix } tense distanceId =
 
         OverXYears i ->
             if i == 1 then
-                "over 1 jaar"
+                "meer dan 1 jaar"
 
             else
-                "over " ++ toStr i ++ " jaren"
+                "meer dan " ++ toStr i ++ " jaar"
 
         AlmostXYears i ->
             if i == 1 then
