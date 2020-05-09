@@ -1,4 +1,4 @@
-module Time.Distance.I18n exposing (en, es, fr, sv, nl)
+module Time.Distance.I18n exposing (en, es, fr, sv, nl, it)
 
 {-| Language functions to take `DistanceId` and other settings, and return
 a localized string
@@ -57,7 +57,7 @@ almost X years
 
 # Language Functions
 
-@docs en, es, fr, sv, nl
+@docs en, es, fr, sv, nl, it
 
 -}
 
@@ -555,5 +555,104 @@ nl { withAffix } tense distanceId =
 
             else
                 "bijna " ++ toStr i ++ " jaar"
+    )
+        |> maybeAffix
+
+
+{-| Italian version.
+
+`Config` is a type alias for `{withAffix : Bool}`
+
+-}
+it : Locale
+it { withAffix } tense distanceId =
+    let
+        toStr =
+            String.fromInt
+
+        maybeAffix str =
+            case ( withAffix, tense ) of
+                ( True, Past ) ->
+                    str ++ " fa"
+
+                ( True, Future ) ->
+                    "da " ++ str
+
+                ( False, _ ) ->
+                    str
+    in
+    (case distanceId of
+        LessThanXSeconds i ->
+            if i == 1 then
+                "meno di 1 secondo"
+
+            else
+                "meno di " ++ toStr i ++ " secondi"
+
+        HalfAMinute ->
+            "30 secondi"
+
+        LessThanXMinutes i ->
+            if i == 1 then
+                "meno di un minuto"
+
+            else
+                "meno di " ++ toStr i ++ " minuti"
+
+        XMinutes i ->
+            if i == 1 then
+                "1 minuto"
+
+            else
+                toStr i ++ " minuti"
+
+        AboutXHours i ->
+            if i == 1 then
+                "circa 1 ora"
+
+            else
+                "circa " ++ toStr i ++ " ore"
+
+        XDays i ->
+            if i == 1 then
+                "1 giorno"
+
+            else
+                toStr i ++ " giorni"
+
+        AboutXMonths i ->
+            if i == 1 then
+                "circa 1 mese"
+
+            else
+                "circa " ++ toStr i ++ " mesi"
+
+        XMonths i ->
+            if i == 1 then
+                "1 mese"
+
+            else
+                toStr i ++ " mesi"
+
+        AboutXYears i ->
+            if i == 1 then
+                "circa 1 anno"
+
+            else
+                "circa " ++ toStr i ++ " anni"
+
+        OverXYears i ->
+            if i == 1 then
+                "oltre 1 anno"
+
+            else
+                "oltre " ++ toStr i ++ " anni"
+
+        AlmostXYears i ->
+            if i == 1 then
+                "quasi 1 anno"
+
+            else
+                "quasi " ++ toStr i ++ " anni"
     )
         |> maybeAffix
