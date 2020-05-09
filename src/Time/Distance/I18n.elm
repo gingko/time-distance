@@ -1,4 +1,4 @@
-module Time.Distance.I18n exposing (en, es, fr, sv, nl)
+module Time.Distance.I18n exposing (en, es, fr, sv, nl, it)
 
 {-| Language functions to take `DistanceId` and other settings, and return
 a localized string
