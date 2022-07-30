@@ -290,7 +290,7 @@ fr { withAffix } tense distanceId =
                 "moins d'une seconde"
 
             else
-                "menos de " ++ toStr i ++ " secondes"
+                "moins de " ++ toStr i ++ " secondes"
 
         HalfAMinute ->
             "une demi-minute"
@@ -328,7 +328,7 @@ fr { withAffix } tense distanceId =
                 "environ un mois"
 
             else
-                "alrededor " ++ toStr i ++ " mois"
+                "environ " ++ toStr i ++ " mois"
 
         XMonths i ->
             if i == 1 then
