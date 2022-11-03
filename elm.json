@@ -1,9 +1,9 @@
 {
     "type": "package",
-    "name": "gingko/time-distance",
+    "name": "Massolari/time-distance",
     "summary": "Get approximate relative time in words",
     "license": "MIT",
-    "version": "2.4.0",
+    "version": "1.0.0",
     "exposed-modules": [
         "Time.Distance",
         "Time.Distance.I18n",
